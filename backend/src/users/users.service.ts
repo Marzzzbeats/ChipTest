@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import type { User } from '../../types/usersType';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -8,13 +10,13 @@ export class UsersService {
 
     private users: User[] = [
         {
-            id: '0',
+            id: 0,
             name: 'Simon',
             email: 'simonmarzin@gmail.com',
             role:'admin'
         },
         {
-            id: '1',
+            id: 1,
             name: 'Jan-luc',
             email: 'jlmelanchon@gmail.com',
             role: 'user'
@@ -25,12 +27,12 @@ export class UsersService {
         return this.users
     }
 
-    getUserById(id: string): User{
+    getUserById(id: number): User{
         return this.users.find((user)=> user.id === id) as User;
     }
 
-    create(user: User): User{
-        const newId = (this.users.length + 1).toString();
+    create(user: CreateUserDto): User{
+        const newId = this.users.length + 1;
         const newUser: User = {
             ...user,
             id: newId,
@@ -39,13 +41,13 @@ export class UsersService {
         return newUser;
     }
 
-    update(id: string, user: User): User{
+    update(id: number, user: UpdateUserDto): User{
         const index = this.users.findIndex((user) => user.id === id);
-        this.users[index] = user;
-        return user;
+        this.users[index] = {...user, id};
+        return this.users[index];
     }
 
-    delete(id: string): string{
+    delete(id: number): string{
         this.users = this.users.filter((user) => user.id !== id); //Filtre le tableau en mettant tout sauf celui avec l'id, donc en gros il le supprime
         return 'user deleted successfully';
     }
