@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChipTest</title>
     <link rel="stylesheet" href="../css/index_style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="./login.html">Login</a></li>
-            <li><a href="./register.html">Register</a></li>
-            <li><a href="../views/dashboard.html">My account</a></li>
-        </ul>
-    </nav>
-    <div>
-        <h1>Welcome on ChipTest !</h1>
-    </div>
-    <div>
-        <img src="../../media/img/photodeprofil.jpg" alt="ProfilePic">
-        <form action="" method="POST" id="start"> <!--Mettra le user en active si existant, ou en crera un temporaire-->
-            <p>Username :<input type="text" placeholder="Chiptuner123"></p>
-            <button type="submit">Start a game</button>
-        </form>
+    <div class="page">
+        <nav class="navbar">
+            <ul>
+                <li><a href="./login.html">Login</a></li>
+                <li><a href="./register.html">Register</a></li>
+                <li><a href="../views/dashboard.html">My account</a></li>
+            </ul>
+        </nav>
+        <div>
+            <h1>Welcome on ChipTest !</h1>
+        </div>
+        <div>
+            <img src="../../media/img/photodeprofil.jpg" alt="ProfilePic">
+            <form action="" method="POST" id="start"> <!--Mettra le user en active si existant, ou en crera un temporaire-->
+                <p>Username :<input type="text" placeholder="Chiptuner123"></p>
+                <button type="submit">Start a game</button>
+            </form>
+        </div>
+        <footer>&copy; ChipTest -- 2026</footer>
     </div>
 </body>
-<footer>&copy; ChipTest -- 2026</footer>
+<script src="../js/index.js"></script>
 </html>
